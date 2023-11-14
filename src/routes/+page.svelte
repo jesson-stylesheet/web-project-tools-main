@@ -1,11 +1,11 @@
 <script>
-    import Header from '$lib/Header.svelte';
-    import SideMenu from '$lib/SideMenu.svelte';
+    // import Header from '$lib/Header.svelte';
+    // import SideMenu from '$lib/SideMenu.svelte';
     import Card from '$lib/Card.svelte';
   </script>
-  
-  <Header />
-  <SideMenu />
+
+<!-- <Header />
+<SideMenu /> -->
   
   <main>
     <section class="cards">
