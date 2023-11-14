@@ -26,6 +26,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@material/mwc-button": "^0.27.0",
+		"@material/mwc-checkbox": "^0.27.0",
+		"@material/mwc-icon": "^0.27.0",
+		"@material/mwc-list": "^0.27.0",
+		"@material/mwc-menu": "^0.27.0",
+		"@material/mwc-textfield": "^0.27.0",
 		"@material/web": "^1.0.1"
 	}
 }
