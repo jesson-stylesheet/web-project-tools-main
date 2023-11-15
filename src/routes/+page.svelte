@@ -2,13 +2,14 @@
     import Header from '$lib/Header.svelte';
     import SideMenu from '$lib/SideMenu.svelte';
     import Card from '$lib/Card.svelte';
+    import { componentWidth } from '../lib/store.js';
 
   </script>
 
 <Header />
 <SideMenu />
   
-  <main>
+  <main style="margin-left: {$componentWidth}px">
     <section class="cards">
       <Card 
         title="Card 1" 
@@ -34,15 +35,20 @@
   
   <style>
     main {
-      padding: 1rem;
-      margin-left: 20%; /* Adjust based on the width of your side menu */
+      padding: 1rem 0 1rem 0;
     }
   
     .cards {
       display: flex;
       flex-wrap: wrap;
       gap: 0.25rem;
-      justify-content: left;
+      justify-content: space-between;
+    }
+
+    @media only screen and (max-width:766px) {
+      .cards {
+        justify-content: left;
+      }
     }
   </style>
   

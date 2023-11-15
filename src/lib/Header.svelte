@@ -3,9 +3,10 @@
     import '@material/web/button/filled-button.js';
     import '@material/web/icon/icon.js';
     import '@material/web/iconbutton/filled-icon-button.js';
+    import { componentWidth } from './store.js';
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <header>
+  <header style="margin-left: {$componentWidth}px">
     <div class="header-content">
       <h1>My Website</h1>
       <nav>
@@ -23,14 +24,14 @@
   
   <style>
     header {
-      width: 80%;
-      margin-left: 20%;
+      max-width: 100%;
       background-color: #6200ee; /* Example color */
       color: white;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-radius: 8px;
     }
   
     .header-content h1 {

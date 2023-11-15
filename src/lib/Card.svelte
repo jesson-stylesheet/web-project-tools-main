@@ -68,9 +68,16 @@
       margin: 8px;
     }
   }
+  @media only screen and (max-width: 765px) {
+    .card {
+      max-width: 330px;
+      min-width: 45%;
+    }
+  }
   @media only screen and (max-width: 542px) {
     .card {
       width: 100%;
+      max-width: 100%;
       margin: 8px;
     }
   }

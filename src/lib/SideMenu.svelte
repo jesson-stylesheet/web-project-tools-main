@@ -1,7 +1,26 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
+  import { componentWidth } from './store.js';
   import '@material/web/list/list.js';
   import '@material/web/list/list-item.js';
+
+  // @ts-ignore
+  let element;
+
+  onMount(() => {
+    const updateWidth = () => {
+      // @ts-ignore
+      componentWidth.set(element.offsetWidth);
+    };
+
+    updateWidth(); // Set initial width
+    window.addEventListener('resize', updateWidth); // Update width on window resize
+
+    // Cleanup on component destruction
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+    };
+  });
 
   let isOpen = true;
 
@@ -25,7 +44,7 @@
   });*/
 </script>
 
-<div class="side-menu" class:open={isOpen}>
+<div bind:this={element} class="side-menu" class:open={isOpen}>
   <md-list>
     <md-list-item>Home</md-list-item>
     <md-list-item>About</md-list-item>
