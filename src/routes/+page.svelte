@@ -2,6 +2,7 @@
     import Header from '$lib/Header.svelte';
     import SideMenu from '$lib/SideMenu.svelte';
     import Card from '$lib/Card.svelte';
+
   </script>
 
 <Header />
@@ -34,14 +35,14 @@
   <style>
     main {
       padding: 1rem;
-      margin-left: 250px; /* Adjust based on the width of your side menu */
+      margin-left: 20%; /* Adjust based on the width of your side menu */
     }
   
     .cards {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
+      gap: 0.25rem;
+      justify-content: left;
     }
   </style>
   
