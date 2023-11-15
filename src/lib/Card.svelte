@@ -26,7 +26,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     margin: 1rem;
-    max-width: 300px;
+    max-width: 460px;
+    min-width: 30%;
   }
 
   .card-image {
@@ -58,5 +59,19 @@
 
   md-filled-button {
     --mdc-theme-primary: #6200ee; /* Example primary color */
+  }
+
+  @media only screen and (max-width: 1360px) {
+    .card {
+      max-width: 240px;
+      min-width: 30%;
+      margin: 8px;
+    }
+  }
+  @media only screen and (max-width: 542px) {
+    .card {
+      width: 100%;
+      margin: 8px;
+    }
   }
 </style>
