@@ -28,20 +28,6 @@
     isOpen = !isOpen;
   }
 
-  /*function handleClickOutside(event) {
-    const target = event.target;
-    if (!target.closest('.side-menu')) {
-      isOpen = false;
-    }
-  }
-
-  onMount(() => {
-    window.addEventListener('click', handleClickOutside);
-
-    return () => {
-      window.removeEventListener('click', handleClickOutside);
-    };
-  });*/
 </script>
 
 <div bind:this={element} class="side-menu" class:open={isOpen}>
