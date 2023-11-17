@@ -32,6 +32,7 @@
       justify-content: space-between;
       align-items: center;
       border-radius: 8px;
+      margin-top: 8px;
     }
   
     .header-content h1 {

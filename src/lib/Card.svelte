@@ -3,15 +3,17 @@
   
   export let title = '';
   export let description = '';
-  export let imageUrl = '/path/to/default/image.jpg'; // Default image URL
+  export let imageUrl = '/src/assets/images/woody-planks-1.png'; // Default image URL
   export let altText = ''; // Default alt text
 </script>
 
 <div class="card">
-  <img src={imageUrl} alt={altText} class="card-image">
-  <div class="card-content">
-    <h2 class="card-title">{title}</h2>
-    <p class="card-description">{description}</p>
+  <div>
+    <img src={imageUrl} alt={altText} class="card-image">
+    <div class="card-content">
+      <h2 class="card-title">{title}</h2>
+      <p class="card-description">{description}</p>
+    </div>
   </div>
   <div class="card-actions">
     <md-filled-button label="Action 1"></md-filled-button>
@@ -28,6 +30,9 @@
     margin: 1rem;
     max-width: 460px;
     min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .card-image {
@@ -61,20 +66,30 @@
     --mdc-theme-primary: #6200ee; /* Example primary color */
   }
 
-  @media only screen and (max-width: 1360px) {
+  @media only screen and (max-width: 1268px) {
     .card {
-      max-width: 240px;
+      max-width: 400px;
       min-width: 30%;
       margin: 8px;
     }
   }
-  @media only screen and (max-width: 765px) {
+
+  @media only screen and (max-width: 1080px) {
     .card {
-      max-width: 330px;
-      min-width: 45%;
+      max-width: 360px;
+      min-width: 30%;
+      margin: 8px;
     }
   }
-  @media only screen and (max-width: 542px) {
+
+  @media only screen and (max-width: 980px) {
+    .card {
+      max-width: 440px;
+      min-width: 30%;
+    }
+  }
+
+  @media only screen and (max-width: 570px) {
     .card {
       width: 100%;
       max-width: 100%;
