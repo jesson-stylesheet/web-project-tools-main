@@ -5,6 +5,10 @@
   export let description = '';
   export let imageUrl = '/src/assets/images/woody-planks-1.png'; // Default image URL
   export let altText = ''; // Default alt text
+  export let action1 = ''; 
+  export let action2 = ''; 
+  export let link1 = ''; 
+  export let link2 = ''; 
 </script>
 
 <div class="card">
@@ -16,8 +20,8 @@
     </div>
   </div>
   <div class="card-actions">
-    <md-filled-button label="Action 1"></md-filled-button>
-    <md-filled-button label="Action 2"></md-filled-button>
+    <a href={link1}><md-filled-button label="Action 1">{action1}</md-filled-button></a>
+    <a href={link2}><md-filled-button label="Action 2">{action2}</md-filled-button></a>
   </div>
 </div>
 

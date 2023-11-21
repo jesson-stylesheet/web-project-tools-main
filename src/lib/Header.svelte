@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <header style="margin-left: {$componentWidth}px">
     <div class="header-content">
-      <h1>My Website</h1>
-      <nav>
+      <h1>Digital & Website Project Tools</h1>
+      <!--<nav>
         <md-filled-button label="Home"></md-filled-button>
         <md-filled-button label="About"></md-filled-button>
         <md-filled-button label="Contact"></md-filled-button>
@@ -18,7 +18,7 @@
             menu
             </span>
         </md-icon-button>
-      </nav>
+      </nav>-->
     </div>
   </header>
   
@@ -37,7 +37,7 @@
   
     .header-content h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 3rem;
     }
   
     nav md-filled-button {
