@@ -11,20 +11,31 @@
     import { tick } from 'svelte';
 
     let time = new Date();
-    let weather = {};
+    let weatherData;
+    let loading = true;
+    let error = false;
+
+    async function fetchWeather() {
+    try {
+      const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Perth,au&appid=82e21111c0f1ac69e012708d4972dc15&units=metric');
+      if (!response.ok) {
+        throw new Error('Weather data could not be fetched');
+      }
+      weatherData = await response.json();
+    } catch (e) {
+      error = e.message;
+    } finally {
+      loading = false;
+    }
+  }
 
     // Update time every minute
     onMount(() => {
         const interval = setInterval(() => {
             time = new Date();
         }, 1000);
+        fetchWeather();
         return () => clearInterval(interval);
-    });
-
-    // Fetch weather data on client side
-    onMount(async () => {
-        const response = await fetch('./api/weather');
-        weather = await response.json();
     });
 
   </script>
@@ -41,7 +52,18 @@
         <div class="time-cloud"><span class="material-symbols-outlined">
           cloud
           </span>
-          <span class="local-time">{weather.temperature}°C, {weather.weather}</span>
+          <span class="local-time">
+            {#if loading}
+              <p>Loading...</p>
+            {:else if error}
+              <p>Error: {error}</p>
+            {:else}
+              <div>
+                <p>{weatherData.main.temp} °C</p>
+                <p>{weatherData.weather[0].main}</p>
+              </div>
+            {/if}
+          </span>
         </div>
     </nav>
     </div>
@@ -82,7 +104,13 @@
       align-items: center;
     }
 
+    .local-time p {
+      margin: 0;
+    }
+
     .material-symbols-outlined {
+      display: flex;
+      align-items: center;
       margin-right: 8px;
       font-variation-settings:
       'FILL' 0,
