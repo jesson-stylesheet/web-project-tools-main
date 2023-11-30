@@ -1,11 +1,32 @@
 <script>
+// @ts-nocheck
+
     // Import Material Web Components
     import '@material/web/button/filled-button.js';
     import '@material/web/icon/icon.js';
     import '@material/web/iconbutton/filled-icon-button.js';
     import { componentWidth } from './store.js';
 
+    import { onMount } from 'svelte';
+    import { tick } from 'svelte';
+
     let time = new Date();
+    let weather = {};
+
+    // Update time every minute
+    onMount(() => {
+        const interval = setInterval(() => {
+            time = new Date();
+        }, 1000);
+        return () => clearInterval(interval);
+    });
+
+    // Fetch weather data on client side
+    onMount(async () => {
+        const response = await fetch('./api/weather');
+        weather = await response.json();
+    });
+
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <header style="margin-left: {$componentWidth}px">
@@ -20,9 +41,8 @@
         <div class="time-cloud"><span class="material-symbols-outlined">
           cloud
           </span>
-          <span class="local-time">{time.toLocaleTimeString()}</span>
+          <span class="local-time">{weather.temperature}°C, {weather.weather}</span>
         </div>
-        <!-- <div>Weather: {weather.temperature}°C, {weather.weather}</div> -->
     </nav>
     </div>
   </header>
