@@ -4,21 +4,26 @@
     import '@material/web/icon/icon.js';
     import '@material/web/iconbutton/filled-icon-button.js';
     import { componentWidth } from './store.js';
+
+    let time = new Date();
   </script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <header style="margin-left: {$componentWidth}px">
     <div class="header-content">
       <h1>Digital & Website Project Tools</h1>
-      <!--<nav>
-        <md-filled-button label="Home"></md-filled-button>
-        <md-filled-button label="About"></md-filled-button>
-        <md-filled-button label="Contact"></md-filled-button>
-        <md-icon-button>
-          <span class="material-symbols-outlined">
-            menu
-            </span>
-        </md-icon-button>
-      </nav>-->
+      <nav>
+        <div class="time-cloud"><span class="material-symbols-outlined">
+          schedule
+          </span>
+          <span class="local-time">{time.toLocaleTimeString()}</span>
+        </div>
+        <div class="time-cloud"><span class="material-symbols-outlined">
+          cloud
+          </span>
+          <span class="local-time">{time.toLocaleTimeString()}</span>
+        </div>
+        <!-- <div>Weather: {weather.temperature}°C, {weather.weather}</div> -->
+    </nav>
     </div>
   </header>
   
@@ -39,8 +44,30 @@
       margin: 0;
       font-size: 3rem;
     }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+    }
   
-    nav md-filled-button {
-      margin: 0 0.5rem;
+    .time-cloud {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin: 8px 0 0 0;
+    }
+
+    .local-time {
+      display: flex;
+      align-items: center;
+    }
+
+    .material-symbols-outlined {
+      margin-right: 8px;
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
     }
   </style>  
